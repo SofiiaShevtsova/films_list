@@ -13,8 +13,8 @@
   },
   "author": "Sofiia Shevtsova",
  
-  "homepage": "https://sofiiashevtsova.github.io/my-project-js/",
-  
+  "homepage": "https://sofiiashevtsova.github.io/films_list/",
+
   "dependencies": {
     "axios": "^1.2.0",
     "modern-normalize": "^1.1.0"
