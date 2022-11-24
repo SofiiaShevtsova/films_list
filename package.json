@@ -1,0 +1,26 @@
+{
+  "name": "films_list",
+  "source": "src/index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "parcel src/*.html",
+    "build": "parcel build src/*.html --public-url /films_list/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SofiiaShevtsova/films_list.git"
+  },
+  "author": "Sofiia Shevtsova",
+ 
+  "homepage": "https://sofiiashevtsova.github.io/my-project-js/",
+  
+  "dependencies": {
+    "axios": "^1.2.0",
+    "modern-normalize": "^1.1.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.8.0",
+    "parcel": "^2.8.0"
+  }
+}
