@@ -1,0 +1,233 @@
+@import './media';
+@import './vars';
+@import './base';
+
+.main {
+  padding-top: 20px;
+  padding-bottom: 40px;
+  display: flex;
+
+  @include tablet {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+.film {
+  width: 280px;
+  height: 402px;
+
+  border-radius: 5px;
+  // overflow: hidden;
+
+  background-color: var(--mainWhite);
+  display: inline-block;
+  
+  @media screen and (min-width: 768px) {
+    width: 336px;
+    height: 455px;
+    border-radius: 5px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 395px;
+    height: 574px;
+    border-radius: 5px;
+  }
+
+  &__image {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  &__meta {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: var(--mainWhite);
+    // margin-bottom: 12px;
+    padding: 12px 5px 5px 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  &__title {
+    font-family: 'Roboto';
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--mainBlack);
+
+    font-size: 12px;
+    line-height: calc(16 / 12);
+
+    @include desktop {
+      font-size: 20px;
+      line-height: calc(24 / 20);
+    }
+  }
+  &__description {
+    display: flex;
+    align-items: center;
+
+    font-size: 12px;
+    line-height: calc(16 / 12);
+
+    @include desktop {
+      font-size: 20px;
+      line-height: calc(24 / 20);
+    }
+  }
+  &__genre {
+    font-family: 'Roboto';
+    font-weight: 500;
+    color: var(--accent);
+
+    margin-right: 5px;
+
+    @include mobile {
+      font-size: 12px;
+      line-height: calc(16 / 12);
+    }
+
+    @include tablet {
+      font-size: 12px;
+      line-height: calc(16 / 12);
+    }
+
+    @include desktop {
+      font-size: 20px;
+      line-height: calc(24 / 20);
+    }
+  }
+  &__year {
+    font-family: 'Roboto';
+    font-weight: 500;
+    color: var(--accent);
+
+    margin-right: 5px;
+
+    @include mobile {
+      font-size: 12px;
+      line-height: calc(16 / 12);
+    }
+
+    @include tablet {
+      font-size: 12px;
+      line-height: calc(16 / 12);
+    }
+
+    @include desktop {
+      font-size: 20px;
+      line-height: calc(24 / 20);
+    }
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 2px;
+      height: 13px;
+
+      margin-right: 5px;
+      background-color: var(--accent);
+    }
+  }
+  &__rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 12px;
+    line-height: calc(14 / 12);
+    color: var(--mainWhite);
+
+    width: 36px;
+    height: 16px;
+
+    border-radius: 5px;
+
+    background-color: var(--accent);
+  }
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 20px;
+
+  padding: 0;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}
+
+.gallery__item {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+
+  transition-timing-function: ease-in-out;
+  transition-duration: 350ms;
+  transition-property: box-shadow, transform;
+  
+    &:hover {
+      box-shadow: 0px 2px 24px -5px rgba(0, 0, 0, 0.74);
+      transform: scale(1.02);
+    }
+
+  width: 280px;
+  height: 443px;
+
+  @media screen and (min-width: 768px) {
+    width: 336px;
+    height: 494px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 32px;
+    width: 394px;
+    height: 634px;
+  }
+}
+
+.js-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.js-tooltip .js-tooltiptext {
+  visibility: hidden;
+  width: 100%;
+  height: auto;
+  background-color: white;
+  color: black;
+  padding: 10px 0px 2px 0px;
+  border-radius: 6px;
+  
+  position: absolute;
+  top: -10px;
+  z-index: 1;
+    @media screen and (min-width: 768px) {
+      padding: 10px 0px 0px 0px;
+    }
+}
+
+.js-tooltip:hover .js-tooltiptext {
+  visibility: visible;
+}

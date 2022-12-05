@@ -7,22 +7,45 @@
     <title>Library</title>
   </head>
   <body>
-    <header>
-      <a href="./" class="logo">SOVA </a>
-      <nav>
-        <ul class="nav">
-          <li>
-            <a href="./index.html" class="nav__link">home</a>
-          </li>
-          <li>
-            <a href="./library.html" class="nav__link">my library</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+<header class="header">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-logo-container">
+        <a href="./index.html" class="logo-link">
+          <svg class="logo-svg" width="24" height="24">
+            <use href="./images/icons.svg#icon-film"></use>
+          </svg>
+          <p class="logo-text">Filmoteka</p>
+        </a>
+      </div>
+      <div class="header-nav-container">
+        <nav class="header-nav">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="./index.html" id="home" class="link current">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a href="./library.html" id="library" class="link">MY LIBRARY</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  </div>
+</header>
 
     <main>
-      <section class="controler"></section>
+      <section class="controler">
+                <div class="btn-container">
+                  <button class="lib-btn watched">Watched</button>
+                  <button class="lib-btn queue">Queue</button>
+                </div>
+                <div class="search-error-container">
+                  <p class="search-error is-hidden">Search result not successful. Enter the correct movie name and</p>
+                </div>
+
+      </section>
       <section class="films">
         <ul class="films__box"></ul>
       </section>

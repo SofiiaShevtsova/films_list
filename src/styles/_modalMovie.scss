@@ -1,0 +1,295 @@
+* {
+    padding: 0;
+    margin: 0;
+    
+}
+button {
+    background-color: inherit;
+    font: inherit;
+    border: none;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 998;
+
+    overflow: auto;
+  
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  
+  .modal-movie-info {
+
+    font-family: Roboto, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+
+    min-width: 280px;
+    height: auto;
+    overflow-y: auto;
+    
+    padding: 48px 20px 40px;
+  
+    background-color: #ffffff;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  
+    transform: translate(-50%, -50%);
+    transition: min-height 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    @media screen and (max-height: 851px) and (max-width: 479.9px) {
+      top: 0;
+      transform: translate(-50%, 0);
+    }
+
+    @include tablet {
+        display: flex;
+        padding: 40px 36px;
+        max-width: 704px;      
+    }
+  
+    @include desktop {
+      max-width: 806px;
+      padding: 40px 12px;
+    }
+  }
+
+  .poster__wrapper {
+    width: 240px;
+   height: auto;
+
+    margin: 0 auto 20px;
+
+    border-radius: 5px;
+    overflow: hidden;
+
+    @include tablet {
+        width: 264px;
+
+        margin-left: 0;
+        margin-bottom: 0px;
+        margin-right: 68px;
+    }
+    @include desktop {
+        width: 375px;
+  
+        margin-right: 16px;
+    }
+
+
+}
+.movie-info__wrapper {
+  height: fit-content;
+}
+.move-info__name {
+    margin-bottom: 20px;
+
+    font-size: 20px;
+    font-weight: 500;
+    line-height: calc(23 / 20);
+
+    @include tablet {
+        
+        line-height: calc(23.44 / 20);   
+    }
+
+    @include desktop {
+
+        font-size: 30px;
+        font-weight: 500;
+        line-height: calc(35.16 / 30);   
+    }
+
+}
+.movie-info__about-title {
+    margin-bottom: 8px;
+
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.14;
+
+    text-transform: uppercase;
+}
+.movie-info__about-content {
+    margin-bottom: 20px;
+
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.42;
+    width: 240px;
+
+    @include tablet {
+      width: 264px;
+    }
+
+    @include desktop {
+      width: 391px;
+      line-height: calc(20 / 12);
+    }
+
+}
+.button {
+    display: inline-block;
+    padding: 0 4px;
+
+    width: 110px;
+    height: 44px;
+
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.14;
+
+    text-align: center;
+    text-transform: uppercase;
+
+    border-radius: 5px;
+    transition: background-color 350ms linear, border 350ms linear;
+
+    @include tablet {
+      width: 125px;
+
+      line-height: calc(16 / 12);       
+    }
+
+@include desktop {
+    width: 136px;
+    
+}
+
+}
+.button--highlited,
+.button:hover,
+.button:focus {
+    color: white;
+    background-color: var(--accent);
+    border-color: var(--accent);
+    
+}
+.button--blank {
+    background-color: transparent;
+    border: 1px solid var(--mainBlack);
+}
+
+.button-wrapper {
+  display: flex;
+  column-gap: 20px;
+
+  @include tablet {
+    column-gap: 15px;
+  }
+}
+  
+  .backdrop.is-hidden .modal-movie-info {
+    transform: translate(-50%, -50%);
+    min-height: 0;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  
+    transform: rotate(0);
+    transition: transform 250ms ease-in;
+    & svg {
+    
+      fill: #000000;
+    }
+    
+    &:hover svg,
+    &:focus svg {
+      fill: #000000
+    }
+    
+    &:hover {
+      transform: rotate(90deg);
+    }
+  
+  }
+  
+  .movie-info__facts {  
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, auto);
+    gap: 8px 8px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "votes-title votes-info"
+      "popularity-title popularity-container"
+      "original-title original-title-container"
+      "genre-title genre-container";
+
+      margin-bottom: 20px;
+  }
+
+  .movie-info__facts--title {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: calc(16 / 12);
+    color: #8c8c8c
+  }
+
+  .moovie-info__container {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: calc(14 / 12);
+    color: var(--mainBlack);
+  }
+  
+  .votes-title { grid-area: votes-title; }
+  
+  .popularity-title { grid-area: popularity-title; }
+  
+  .original-title { grid-area: original-title; }
+  
+  .genre-title { grid-area: genre-title; }
+  
+  .votes-info {  display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "vote-container votes-container";
+    grid-area: votes-info;
+  }
+  
+.vote-container { 
+    grid-area: vote-container; 
+    padding: 0 7px;
+    width: fit-content;
+
+    background-color: var(--accent);
+    color: var(--mainWhite);
+    border-radius: 5px;
+
+    font-size: 12px;
+    font-weight: 500;
+    line-height: calc(14 / 12);
+    
+}
+  
+.votes-container { 
+    grid-area: votes-container; 
+    padding-left: 3px;
+}
+  
+  .popularity-container { grid-area: popularity-container; }
+  
+  .original-title-container { grid-area: original-title-container; }
+  
+  .genre-container { grid-area: genre-container; }
+  

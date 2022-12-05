@@ -1,0 +1,45 @@
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+button {
+  border: none;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+span {
+  margin: 0px;
+  padding: 0px;
+}
+
+img {
+  display: inline-block;
+  height: auto;
+  max-width: 100%;
+}
+
+address {
+  font-style: normal;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--body);
+  // background-color: red;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.stretch{
+  flex-grow: 1;
+}

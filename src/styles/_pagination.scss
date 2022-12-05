@@ -1,0 +1,67 @@
+body .tui-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // margin-top: 40px;
+  margin-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @include tablet {
+    margin-top: 0px;
+    margin-bottom: 60px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+.tui-custon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-decoration: none;
+  width: 40px;
+  height: 40px;
+  color: var(--paginationTextColor);
+  background-color: transparent;
+  border-radius: 5px;
+  border: none;
+}
+
+.tui-custon-is-selected {
+  background-color: var(--accent);
+  color: var(--mainWhite);
+}
+
+.tui-pagination .tui-first,
+.tui-pagination .tui-last {
+  display: none;
+}
+
+body .tui-pagination .tui-next-is-ellip,
+body .tui-pagination .tui-prev-is-ellip {
+  border: none;
+}
+
+body .tui-pagination .tui-next,
+body .tui-pagination .tui-prev {
+  background-color: var(--mainWhite);
+  border: none;
+  width: 40px;
+  height: 40px;
+}
+body .tui-pagination .tui-first-child,
+.tui-pagination .tui-prev-is-ellip,
+body .tui-pagination .tui-last-child,
+.tui-pagination .tui-prev-is-ellip {
+  border-left: none;
+}
+body .tui-pagination .tui-last-child,
+.tui-pagination .tui-next-is-ellip {
+  border-right: none;
+}
