@@ -1,23 +1,44 @@
+import { genres } from "./index";
 
 export const Templates = {
+  genre: "",
   getGenresFilm(genresName) {
-    const genre = genresName.slice(0, 2).join(",");
-    return genre
+    this.genre =
+      genresName.length > 2
+        ? genresName.slice(0, 2).join(", ") + `, Other`
+        : genresName.slice(0, 2).join(", ");
+    return this.genre;
   },
 
-cutString(name) {
-  let filmName = '';
-  if (name.length < 35) {
-    return name;
-  }
-  if (name.length >= 35) {
-    return (filmName = name.slice(0, 31) + '...');
-  }
-},
+  cutString(name) {
+    let filmName = "";
+    if (name.length < 30) {
+      return name;
+    }
+    if (name.length >= 30) {
+      return (filmName = name.slice(0, 29) + "...");
+    }
+  },
 
-  getCardsOfFilms (film, genresName) {
+  arrayMarkupFilm(array) {
+    const markup = array
+      .map((e) => {
+        const genresName = [];
+        for (const elem of e.genre_ids) {
+          if (!genres.name[`${elem}`] || genres.name[`${elem}`].length > 15) {
+            continue;
+          }
+          genresName.push(genres.name[`${elem}`]);
+        }
 
-  const template = `<li class="gallery__item" data-id=${film.id}>
+        return this.getCardsOfFilms(e, genresName);
+      })
+      .join("");
+    return markup;
+  },
+
+  getCardsOfFilms(film, genresName) {
+    const template = `<li class="gallery__item" data-id=${film.id}>
       <a class="film" href="#">
         <img
           class="film__image"
@@ -29,17 +50,21 @@ cutString(name) {
             film.title || film.name
           }</span>${this.cutString(film.title || film.name)}</p>
           <p class="film__description">
-            <span class="film__genre">${this.getGenresFilm(genresName) || `Other`}</span>
+            <span class="film__genre">${
+              this.getGenresFilm(genresName) || `Other`
+            }</span>
             <span class="film__year">${parseInt(
               film.release_date || film.first_air_date
-  )}</span>
-                        <span class="film__rating">${film?.vote_average?.toFixed(1)}</span>
+            )}</span>
+                        <span class="film__rating">${film?.vote_average?.toFixed(
+                          1
+                        )}</span>
           </p>
         </div>
       </a>
     </li >`;
-  
-  return template;
+
+    return template;
   },
   getCardOfFilmByModal(film) {
     const filmCard = ` <div class="modal-movie-info">
@@ -77,14 +102,17 @@ cutString(name) {
         <p class="genre-title movie-info__facts--title">Genre</p>
         <div class="votes-info">
           <p class="vote-container">${film.vote_average.toFixed(1)}</p>
-          <p class="votes-container moovie-info__container">/ ${film.vote_count
-      }</p>
+          <p class="votes-container moovie-info__container">/ ${
+            film.vote_count
+          }</p>
         </div>
         <p class="popularity-container moovie-info__container">${film.popularity.toFixed(
-        1
-      )}</p>
+          1
+        )}</p>
         <p class="original-title-container moovie-info__container">${film.original_title.toUpperCase()}</p>
-        <p class="genre-container moovie-info__container">${this.getGenresFilm(genresName) || `Other`}</p>
+        <p class="genre-container moovie-info__container">${
+          this.getGenresFilm(genresName) || `Other`
+        }</p>
       </div>
 
       <p class="movie-info__about-title">About</p>
@@ -103,9 +131,8 @@ cutString(name) {
       </button>
     </div>
   </div>`;
+    
+    console.log(filmCard);
     return filmCard;
   },
-}
-  
-  
-  
+};

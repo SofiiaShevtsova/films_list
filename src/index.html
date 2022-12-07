@@ -56,11 +56,58 @@
         </p>
       </div>
       </section>
-      <section class="films">
-        <ul class="films__box"></ul>
-      </section>
+      <section class="main container stretch">
+        <ul class="gallery"></ul>
+      </section >
     </main>
     <footer></footer>
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal-movie-info">
+        <button class="close-button" type="button" data-modal-close>
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 8L22 22" stroke="black" stroke-width="2" />
+            <path d="M8 22L22 8" stroke="black" stroke-width="2" />
+          </svg>
+        </button>
+    
+        <div class="poster__wrapper">
+          <img id="poster__image" src="#" alt="poster" width="375px" height="478px" />
+        </div>
+        <div class="movie-info__wrapper">
+          <h2 class="move-info__name">MOVIE NAME</h2>
+    
+          <div class="movie-info__facts">
+            <div class="votes-title movie-info__facts--title">Vote / votes</div>
+            <div class="popularity-title movie-info__facts--title">Popularity</div>
+            <div class="original-title movie-info__facts--title">
+              Original title
+            </div>
+            <div class="genre-title movie-info__facts--title">Genre</div>
+            <div class="votes-info">
+              <div class="vote-container">7</div>
+              <div class="votes-container moovie-info__container">/ 1000</div>
+            </div>
+            <div class="popularity-container moovie-info__container"></div>
+            <div class="original-title-container moovie-info__container"></div>
+            <div class="genre-container moovie-info__container"></div>
+          </div>
+    
+          <p class="movie-info__about-title">About</p>
+          <p class="movie-info__about-content">
+            This content will be updated by JS module
+          </p>
+          <div class="button-wrapper">
+            <button class="button button--blank" id="add-to-watched" type="button">
+              Add to watched
+            </button>
+            <button class="button button--blank" id="add-to-queue" type="button">
+              Add to queue
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="./js/index.js" type="module"></script>
   </body>
 </html>
