@@ -66,73 +66,73 @@ export const Templates = {
 
     return template;
   },
-  getCardOfFilmByModal(film) {
-    const filmCard = ` <div class="modal-movie-info">
-    <button class="close-button" type="button" data-modal-close>
-      <svg
-        width="30"
-        height="30"
-        viewBox="0 0 30 30"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M8 8L22 22" stroke="black" stroke-width="2" />
-        <path d="M8 22L22 8" stroke="black" stroke-width="2" />
-      </svg>
-    </button>
+  // getCardOfFilmByModal(film) {
+  //   const filmCard = ` <div class="modal-movie-info">
+  //   <button class="close-button" type="button" data-modal-close>
+  //     <svg
+  //       width="30"
+  //       height="30"
+  //       viewBox="0 0 30 30"
+  //       fill="none"
+  //       xmlns="http://www.w3.org/2000/svg"
+  //     >
+  //       <path d="M8 8L22 22" stroke="black" stroke-width="2" />
+  //       <path d="M8 22L22 8" stroke="black" stroke-width="2" />
+  //     </svg>
+  //   </button>
 
-    <div class="poster__wrapper">
-      <img
-        id="poster__image"
-        src="https://image.tmdb.org/t/p/w500/${film.poster_path}"
-        alt=${film.title || film.name}
-        width="375px"
-        height="478px"
-      />
-    </div>
-    <div class="movie-info__wrapper">
-      <h2 class="move-info__name">${film.title || film.name}</h2>
+  //   <div class="poster__wrapper">
+  //     <img
+  //       id="poster__image"
+  //       src="https://image.tmdb.org/t/p/w500/${film.poster_path}"
+  //       alt=${film.title || film.name}
+  //       width="375px"
+  //       height="478px"
+  //     />
+  //   </div>
+  //   <div class="movie-info__wrapper">
+  //     <h2 class="move-info__name">${film.title || film.name}</h2>
 
-      <div class="movie-info__facts">
-        <p class="votes-title movie-info__facts--title">Vote / votes</p>
-        <p class="popularity-title movie-info__facts--title">Popularity</p>
-        <p class="original-title movie-info__facts--title">
-          Original title
-        </p>
-        <p class="genre-title movie-info__facts--title">Genre</p>
-        <div class="votes-info">
-          <p class="vote-container">${film.vote_average.toFixed(1)}</p>
-          <p class="votes-container moovie-info__container">/ ${
-            film.vote_count
-          }</p>
-        </div>
-        <p class="popularity-container moovie-info__container">${film.popularity.toFixed(
-          1
-        )}</p>
-        <p class="original-title-container moovie-info__container">${film.original_title.toUpperCase()}</p>
-        <p class="genre-container moovie-info__container">${
-          this.getGenresFilm(genresName) || `Other`
-        }</p>
-      </div>
+  //     <div class="movie-info__facts">
+  //       <p class="votes-title movie-info__facts--title">Vote / votes</p>
+  //       <p class="popularity-title movie-info__facts--title">Popularity</p>
+  //       <p class="original-title movie-info__facts--title">
+  //         Original title
+  //       </p>
+  //       <p class="genre-title movie-info__facts--title">Genre</p>
+  //       <div class="votes-info">
+  //         <p class="vote-container">${film.vote_average.toFixed(1)}</p>
+  //         <p class="votes-container moovie-info__container">/ ${
+  //           film.vote_count
+  //         }</p>
+  //       </div>
+  //       <p class="popularity-container moovie-info__container">${film.popularity.toFixed(
+  //         1
+  //       )}</p>
+  //       <p class="original-title-container moovie-info__container">${film.original_title.toUpperCase()}</p>
+  //       <p class="genre-container moovie-info__container">${
+  //         this.getGenresFilm(genresName) || `Other`
+  //       }</p>
+  //     </div>
 
-      <p class="movie-info__about-title">About</p>
-      <p class="movie-info__about-content">
-        ${film.overview}
-      </p>
-      <button
-        class="button button--highlited"
-        id="add-to-watched"
-        type="button"
-      >
-        Add to watched
-      </button>
-      <button class="button button--blank" id="add-to-queue" type="button">
-        Add to queue
-      </button>
-    </div>
-  </div>`;
+  //     <p class="movie-info__about-title">About</p>
+  //     <p class="movie-info__about-content">
+  //       ${film.overview}
+  //     </p>
+  //     <button
+  //       class="button button--highlited"
+  //       id="add-to-watched"
+  //       type="button"
+  //     >
+  //       Add to watched
+  //     </button>
+  //     <button class="button button--blank" id="add-to-queue" type="button">
+  //       Add to queue
+  //     </button>
+  //   </div>
+  // </div>`;
     
-    console.log(filmCard);
-    return filmCard;
-  },
+  //   console.log(filmCard);
+  //   return filmCard;
+  // },
 };

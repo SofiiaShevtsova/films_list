@@ -59,27 +59,23 @@ export const Modal = {
     const id = movieCard.dataset.id;
 
     const data = await showFilmsList.getFilmsById(id);
-    console.log(data);
 
-    // data.poster_path
-    //   ? (Modal.poster.src =
-    //       `https://image.tmdb.org/t/p/w500${data.poster_path}` || "#")
-    //   : (Modal.poster.src =
-    //       "https://cdn-www.comingsoon.net/assets/uploads/2014/09/file_123131_0_defaultposterlarge.jpg");
+    data.poster_path
+      ? (Modal.poster.src =
+          `https://image.tmdb.org/t/p/w500${data.poster_path}` || "#")
+      : (Modal.poster.src =
+          "https://cdn-www.comingsoon.net/assets/uploads/2014/09/file_123131_0_defaultposterlarge.jpg");
 
-    // // refsModal.poster.src =
-    // //   `https://image.tmdb.org/t/p/w500${data?.poster_path}?api_key=${API_KEY}&language=en-US` ??
-    // //   '#';
 
-    // Modal.movieName.textContent =
-    //   data.original_title || data.original_name || "NAMELESS MOVIE";
-    // Modal.vote.textContent = data.vote_average.toFixed(1) || 0;
-    // Modal.votes.textContent = "/ " + data.vote_count || 0;
-    // Modal.popularity.textContent = data.popularity.toFixed(1) || 0;
-    // Modal.originalTitle.textContent = data.original_title.toUpperCase() || "";
-    // Modal.genre.textContent =
-    //   data.genres.map((genre) => genre.name).join(", ") || "Not set";
-    // Modal.about.textContent =
-    //   data.overview || "There is no information provided.";
+    Modal.movieName.textContent =
+      data.original_title || data.original_name || "NAMELESS MOVIE";
+    Modal.vote.textContent = data.vote_average.toFixed(1) || 0;
+    Modal.votes.textContent = "/ " + data.vote_count || 0;
+    Modal.popularity.textContent = data.popularity.toFixed(1) || 0;
+    Modal.originalTitle.textContent = data.original_title.toUpperCase() || "";
+    Modal.genre.textContent =
+      data.genres.map((genre) => genre.name).join(", ") || "Not set";
+    Modal.about.textContent =
+      data.overview || "There is no information provided.";
   },
 };

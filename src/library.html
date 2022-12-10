@@ -22,10 +22,10 @@
         <nav class="header-nav">
           <ul class="nav-list">
             <li class="nav-item">
-              <a href="./index.html" id="home" class="link current">HOME</a>
+              <a href="./index.html" id="home" class="link">HOME</a>
             </li>
             <li class="nav-item">
-              <a href="./library.html" id="library" class="link">MY LIBRARY</a>
+              <a href="./library.html" id="library" class="link current">MY LIBRARY</a>
             </li>
           </ul>
         </nav>
@@ -42,15 +42,30 @@
                   <button class="lib-btn queue">Queue</button>
                 </div>
                 <div class="search-error-container">
-                  <p class="search-error is-hidden">Search result not successful. Enter the correct movie name and</p>
+                  <p class="search-error is-hidden">Search result not successful. Enter the correct movie name.</p>
                 </div>
 
       </section>
-      <section class="films">
-        <ul class="films__box"></ul>
-      </section>
+<section class="main container stretch">
+  <ul class="gallery watched" data-watched></ul>
+  <ul class="gallery queue" data-queue></ul>
+</section>
     </main>
-    <footer></footer>
-    <script src="./js/library.js" type="module"></script>
+<footer class="footer">
+  <div class="footer__container">
+    <div class="footer__first-text-box">
+      <p class="footer__text footer__text--vertical-line">&#xA9; 2022</p>
+      <p class="footer__text footer__text--vertical-line">All Rights Reserved</p>
+    </div>
+    <div class="footer__second-text-box">
+      <p class="footer__text">Developed with</p>
+      <svg class="footer__svg">
+        <use href="./images/icons.svg#icon-heart"></use>
+      </svg>
+      <p class="footer__text">by</p>
+      <a href="" class="footer__text footer__link js-team-modal">GoIT Students</a>
+    </div>
+  </div>
+</footer>    <script src="./js/library.js" type="module"></script>
   </body>
 </html>

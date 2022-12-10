@@ -5,8 +5,7 @@ export const localStorageServise = {
   QUEUE_LOCAL: "list-of-films-queue",
 
   watchedList(elem, event) {
-    const filmsItem = elem.target.parentNode.parentNode;
-
+    const filmsItem = elem.parentNode.parentNode;
     if (
       localStorage.getItem(this.WATCHED_LOCAL) &&
       this.elementsWatched.length === 0
@@ -17,9 +16,9 @@ export const localStorageServise = {
     }
 
     const renderW = `<li class="gallery__item" data-id="${filmsItem.dataset.id}">${filmsItem.innerHTML}</li>`;
+      event.target.textContent = "Added to Watched";
 
     if (this.elementsWatched.includes(renderW)) {
-      event.target.textContent = "Added to Watched";
       return;
     }
     this.elementsWatched.push(renderW);
@@ -30,7 +29,7 @@ export const localStorageServise = {
   },
 
   queueList(elem, event) {
-    const filmsItem = elem.target.parentNode.parentNode;
+    const filmsItem = elem.parentNode.parentNode;
 
     if (
       localStorage.getItem(this.QUEUE_LOCAL) &&
@@ -42,9 +41,9 @@ export const localStorageServise = {
     }
 
     const renderQ = `<li class="gallery__item" data-id="${filmsItem.dataset.id}">${filmsItem.innerHTML}</li>`;
+      event.target.textContent = "Added to Queue";
 
     if (this.elementsQueue.includes(renderQ)) {
-      event.target.textContent = "Added to Queue";
 
       return;
     }
