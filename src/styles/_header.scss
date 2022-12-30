@@ -176,10 +176,21 @@
 
 .find-films{
   margin-top: -100px;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 
 .controler{
-    margin-top: -100px;
-      margin-bottom: 50px;
+    margin-top: -150px;
+    margin-bottom: -45px;
+}
+
+.empty-list{
+  height: 100vh;
+  margin-bottom: -120px;
+  background-image: radial-gradient(rgba(206, 45, 17, 0.719) 15%,
+      rgb(228, 90, 10) 25%,
+      rgba(39, 38, 38) 60%);
+      &.close{
+        display: none;
+      }
 }
