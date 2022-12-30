@@ -46,11 +46,15 @@ export const Modal = {
   },
 
   hideModal(event) {
-    if (event.target.className === "backdrop" || event.target.parentNode.className === "close-button" || event.code === "Escape" ) {
-    Modal.backdrop.classList.add("is-hidden");
-    const body = document.body;
-    body.style.overflow = "";
-    };
+    if (
+      event.target.classList.contains("backdrop") ||
+      event.target.parentNode.classList.contains("close-button") ||
+      event.code === "Escape"
+    ) {
+      Modal.backdrop.classList.add("is-hidden");
+      const body = document.body;
+      body.style.overflow = "";
+    }
   },
 
   async modalMovie(event) {
@@ -65,7 +69,6 @@ export const Modal = {
           `https://image.tmdb.org/t/p/w500${data.poster_path}` || "#")
       : (Modal.poster.src =
           "https://cdn-www.comingsoon.net/assets/uploads/2014/09/file_123131_0_defaultposterlarge.jpg");
-
 
     Modal.movieName.textContent =
       data.original_title || data.original_name || "NAMELESS MOVIE";
