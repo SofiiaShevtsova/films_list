@@ -1,6 +1,9 @@
 import "../../node_modules/modern-normalize";
 import "../styles/index.scss";
 
+import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
+
 const axios = require("axios").default;
 import { Loading } from "notiflix/build/notiflix-loading-aio";
 import { Templates } from "./templates";
@@ -40,7 +43,7 @@ export const showFilmsList = {
   popular: `trending/all/day?`,
   nameFilm: `search/movie?language=en-US&include_adult=false&`,
 
-  async getFilms(query) {
+  async getFilms(page, query) {
 
     try {
       if (query) {
@@ -75,7 +78,7 @@ export const showFilmsList = {
 
         
         const response = await axios.get(
-        `${this.baseUrl}${this.popular}${this.keyAPI}`
+        `${this.baseUrl}${this.popular}${this.keyAPI}&page=${page}`
       );
 
       const markupFilms = Templates.arrayMarkupFilm(response.data.results);
@@ -107,7 +110,51 @@ export const showFilmsList = {
   },
 };
 
-showFilmsList.getFilms();
+showFilmsList.getFilms(1);
+
+const options = {
+  totalItems: 0,
+  itemsPerPage: 20,
+  visiblePages: 5,
+  page: 1,
+  centerAlign: false,
+  template: {
+    page: '<a href="#" class="tui-custon">{{page}}</a>',
+    currentPage:
+      '<span class="tui-custon tui-custon-is-selected">{{page}}</span>',
+    moveButton:
+      '<a href="#" class="tui-custon tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}">{{type}}</span>' +
+      '</a>',
+    disabledMoveButton:
+      '<span class="tui-custon tui-is-disabled tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}">{{type}}</span>' +
+      '</span>',
+    moreButton:
+      '<a href="#" class="tui-custon tui-{{type}}-is-ellip">' +
+      '<span class="tui-ico-ellip">...</span>' +
+      '</a>',
+  },
+};
+
+const pagination = new Pagination('pagination', options);
+const page = pagination.getCurrentPage();
+
+const loadMorePopylarFilms = async event => {
+  const currentPage = event.page;
+  Loading.hourglass({
+    clickToClose: true,
+    svgSize: '200px',
+    svgColor: '#ff6b01',
+  });
+  const data = await showFilmsList.getFilms(currentPage);
+  Loading.remove();
+};
+
+// console.log(paginatio.getCurrentPage());
+
+pagination.on('beforeMove', loadMorePopylarFilms);
+
 
 function onQueueBtnClick(event) {
   localStorageServise.queueList(Modal.curentElem, event);
@@ -120,7 +167,7 @@ function onWatchedBtnClick(event) {
 function onInputSubmit(event) {
   event.preventDefault();
   const query = event.currentTarget.elements[0].value.trim().toLowerCase();
-  showFilmsList.getFilms(query);
+  showFilmsList.getFilms(1, query);
 
 }
 
