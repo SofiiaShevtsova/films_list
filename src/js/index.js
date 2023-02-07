@@ -109,8 +109,9 @@ export const showFilmsList = {
         const response = await axios.get(
         `${this.baseUrl}${this.popular}${this.keyAPI}&page=${page}`
         );
-        
+        if (page === 1) {
         pagination.reset(response.data.total_results);
+        }
 
       const markupFilms = Templates.arrayMarkupFilm(response.data.results);
 
@@ -146,6 +147,7 @@ showFilmsList.getFilms(1);
 
 const loadMorePopylarFilms = async event => {
   const currentPage = event.page;
+  options.page=currentPage
   Loading.hourglass({
     clickToClose: true,
     svgSize: '200px',
@@ -154,8 +156,8 @@ const loadMorePopylarFilms = async event => {
   showFilmsList.getFilms(currentPage);
   Loading.remove();
 };
-
 pagination.on('beforeMove', loadMorePopylarFilms);
+
 
 function onQueueBtnClick(event) {
   localStorageServise.queueList(Modal.curentElem, event);
